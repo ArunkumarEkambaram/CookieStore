@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Customer>
+
+@{
+    ViewBag.Title = "Customer Details";
+}
+
+<h1>Customer Details</h1>
+
+<div class="row">
+    @foreach (var emp in Model)
+    {
+        <div class="card" style="width:18rem;">
+
+            <div class="card-header">
+                <h5 class="card-title">@emp.Name</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">@emp.City</li>
+                <li class="list-group-item">@emp.BirthDate</li>
+                <li class="list-group-item">@emp.MobileNo</li>
+            </ul>
+            <div class="card-footer">
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@emp.Id" class="btn btn-primary">Details</a>
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@emp.Id" class="btn btn-info">Edit</a>
+                <a asp-controller="Home" asp-action="Delete" asp-route-id="@emp.Id" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    }
+</div>

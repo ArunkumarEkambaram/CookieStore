@@ -1,0 +1,26 @@
+﻿@model ExampleViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form asp-controller="CSharp7" asp-action="Index" method="post">
+    <table>
+        <tr>
+            <td>
+                Choose One :
+            </td>
+            <td>
+                <select asp-for="ObjectType">
+                    <option value="Customer">Customer</option>
+                    <option value="Orders">Orders</option>
+                </select>
+            </td>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>

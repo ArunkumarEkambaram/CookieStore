@@ -1,0 +1,47 @@
+﻿@model GetDoctorsViewModel
+
+@{
+    ViewBag.Title = "Display Doctors";
+}
+
+<h1>Doctor Details</h1>
+
+<div class="container">
+    <form asp-controller="Doctors" asp-action="GetDoctors" asp-route-locationid="@Model.LocationId">
+        <div class="row">
+            <select asp-for="LocationId" asp-items="@Model.LocationList" class="form-control col-md-5"></select>
+        </div>
+        <div class="row">
+            <select asp-for="DoctorId" asp-items="@Model.DoctorList" class="form-control col-md-5"></select>
+        </div>
+        <div>
+            @if (!string.IsNullOrWhiteSpace(Model.Name))
+            {
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Name</th>
+                        <th>Specilisation</th>
+                    </tr>
+                    <tr>
+                        <td>@Model.Name</td>
+                        <td>@Model.Specialisation</td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#LocationId").change(function () {
+                window.location.href = "/Doctors/GetDoctors?" + $.param({ LocationId: $("#LocationId option:selected").val() });
+            });
+
+            $("#DoctorId").change(function () {
+                window.location.href = "/Doctors/GetDoctors?" + $.param({ LocationId: $("#LocationId option:selected").val() }) + "&" + $.param({ DoctorId: $("#DoctorId option:selected").val() });
+            });
+        });
+    </script>
+}

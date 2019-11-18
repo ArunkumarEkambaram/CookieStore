@@ -1,0 +1,43 @@
+﻿@model CustomerViewModel
+
+@{
+    ViewBag.Title = "Create new Customer";
+}
+
+<h1>Create New Customer</h1>
+
+<form asp-controller="Home" asp-action="Create" method="post">
+    <div class="container">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City"></label>
+                <input asp-for="City" class="form-control" autocomplete="off" />
+                <span asp-validation-for="City"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MobileNo"></label>
+                <input asp-for="MobileNo" class="form-control" autocomplete="off" />
+                <span asp-validation-for="MobileNo"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=" BirthDate"></label>
+                <input asp-for="BirthDate" class="form-control" autocomplete="off" />
+                <span asp-validation-for="BirthDate"></span>
+            </div>
+            <div class="form-row">
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                <button type="reset" class="btn btn-outline-danger ml-auto">Reset</button>
+            </div>
+        </div>
+        <div></div>
+        <div>
+            <a asp-controller="Home" asp-action="Index">Back to Index</a>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,16 @@
+﻿@model Customer
+
+@{    
+    ViewBag.Title = "Customer Details";
+}
+
+<div><b>Name: </b>@Model.Name</div>
+<div><b>City: </b>@Model.City</div>
+<div><b>Birth Date: </b>@Model.BirthDate.ToShortDateString()</div>
+<div><b>Mobile No: </b>@Model.MobileNo</div>
+
+<a asp-controller="Home" asp-action="Index">Back to List</a>
+
+@section Scripts{
+    <script src="~/scripts/MyScript.js"></script>
+}
